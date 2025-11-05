@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="de89c774-ef21-4224-8503-b20beaccd20f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/google_adk.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/memory.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/memory_complex.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/text/00-Table-of-Contents.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/text/01-Dedication.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/text/02-Acknowledgment.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/text/03-Foreword.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/text/04-Thought-Leader.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/text/05-Introduction.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/text/06-What-Makes-Agent.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/text/07-Chapter-01-Prompt-Chaining.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/text/08-Chapter-02-Routing.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/text/09-Chapter-03-Parallelization.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/text/10-Chapter-04-Reflection.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/text/11-Chapter-05-Tool-Use.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/text/12-Chapter-06-Planning.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/text/13-Chapter-07-Multi-Agent-Collaboration.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/text/14-Chapter-08-Memory-Management.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/text/16-Chapter-10-Model-Context-Protocol.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/text/17-Chapter-11-Goal-Setting-And-Monitoring.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/text/19-Chapter-13-Human-in-the-Loop.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/text/20-Chapter-14-Knowledge-Retrieval-RAG.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/text/21-Chapter-15-Inter-Agent-Communication.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/text/22-Chapter-16-Resource-Aware-Optimization.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/text/23-Chapter-17-Reasoning-Techniques.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/text/25-Chapter-19-Evaluation-and-Monitoring.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/text/26-Chapter-20-Prioritization.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/text/27-Chapter-21-Exploration-and-Discovery.md" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="34yK3ZG1caH8rNVwVtxDkpniw6A" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.document_splitter.executor": "Run",
+    "Python.main.executor": "Run",
+    "Python.memory.executor": "Run",
+    "Python.test_embedding.executor": "Run",
+    "Python.test_embedding_fixed.executor": "Debug",
+    "Python.test_embedding_simple.executor": "Debug",
+    "Python.test_embedding_working.executor": "Run",
+    "Python.test_reranker.executor": "Run",
+    "Python.wash.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/looboo/myprojects/google_adk/text",
+    "settings.editor.selected.configurable": "preferences.keymap"
+  },
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "DockerIgnore"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/text" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.document_splitter">
+    <configuration name="document_splitter" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="google_adk" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/document_splitter.py" />
+      <option name="PARAMETERS" value="--test" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test_embedding" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="google_adk" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_embedding.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test_embedding" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="google_adk" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_embedding.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test_reranker" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="google_adk" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_reranker.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="wash" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="google_adk" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/wash.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.document_splitter" />
+        <item itemvalue="Python.wash" />
+        <item itemvalue="Python.test_reranker" />
+        <item itemvalue="Python.test_embedding" />
+        <item itemvalue="Python.test_embedding_working" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-4e2b1448bda8-9a97661f3031-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-252.27397.106" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="de89c774-ef21-4224-8503-b20beaccd20f" name="Changes" comment="" />
+      <created>1762180172875</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1762180172875</updated>
+    </task>
+    <servers />
+  </component>
+</project>
