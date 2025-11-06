@@ -5,40 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="de89c774-ef21-4224-8503-b20beaccd20f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/google_adk.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/memory.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/memory_complex.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/text/00-Table-of-Contents.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/text/01-Dedication.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/text/02-Acknowledgment.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/text/03-Foreword.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/text/04-Thought-Leader.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/text/05-Introduction.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/text/06-What-Makes-Agent.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/text/07-Chapter-01-Prompt-Chaining.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/text/08-Chapter-02-Routing.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/text/09-Chapter-03-Parallelization.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/text/10-Chapter-04-Reflection.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/text/11-Chapter-05-Tool-Use.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/text/12-Chapter-06-Planning.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/text/13-Chapter-07-Multi-Agent-Collaboration.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/text/14-Chapter-08-Memory-Management.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/text/16-Chapter-10-Model-Context-Protocol.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/text/17-Chapter-11-Goal-Setting-And-Monitoring.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/text/19-Chapter-13-Human-in-the-Loop.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/text/20-Chapter-14-Knowledge-Retrieval-RAG.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/text/21-Chapter-15-Inter-Agent-Communication.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/text/22-Chapter-16-Resource-Aware-Optimization.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/text/23-Chapter-17-Reasoning-Techniques.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/text/25-Chapter-19-Evaluation-and-Monitoring.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/text/26-Chapter-20-Prioritization.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/text/27-Chapter-21-Exploration-and-Discovery.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyword_extractor.py" beforeDir="false" afterPath="$PROJECT_DIR$/keyword_extractor.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,6 +38,7 @@
   "keyToString": {
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "Python.document_splitter.executor": "Run",
+    "Python.keyword_extractor.executor": "Debug",
     "Python.main.executor": "Run",
     "Python.memory.executor": "Run",
     "Python.test_embedding.executor": "Run",
@@ -96,7 +65,7 @@
       <recent name="$PROJECT_DIR$/text" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.document_splitter">
+  <component name="RunManager" selected="Python.keyword_extractor">
     <configuration name="document_splitter" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="google_adk" />
       <option name="ENV_FILES" value="" />
@@ -119,7 +88,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="test_embedding" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="keyword_extractor" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="google_adk" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -132,8 +101,8 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_embedding.py" />
-      <option name="PARAMETERS" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/keyword_extractor.py" />
+      <option name="PARAMETERS" value="--test" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -207,13 +176,20 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Python.document_splitter" />
+      <item itemvalue="Python.keyword_extractor" />
+      <item itemvalue="Python.test_embedding" />
+      <item itemvalue="Python.test_reranker" />
+      <item itemvalue="Python.wash" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.keyword_extractor" />
         <item itemvalue="Python.document_splitter" />
         <item itemvalue="Python.wash" />
         <item itemvalue="Python.test_reranker" />
         <item itemvalue="Python.test_embedding" />
-        <item itemvalue="Python.test_embedding_working" />
       </list>
     </recent_temporary>
   </component>

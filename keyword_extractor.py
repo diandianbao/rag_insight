@@ -12,6 +12,7 @@
 
 import jieba
 import jieba.analyse
+import jieba.posseg as pseg
 import re
 from typing import List, Tuple, Dict, Any
 
@@ -57,51 +58,50 @@ class KeywordExtractor:
         for word in self.agent_domain_words:
             jieba.add_word(word, freq=1000, tag='n')
 
-        # 停用词列表（扩展版）
-        self.stop_words = set([
-            # 中文停用词
-            '的', '了', '在', '是', '我', '有', '和', '就', '不', '人', '都', '一', '一个',
-            '上', '也', '很', '到', '说', '要', '去', '你', '会', '着', '没有', '看', '好',
-            '自己', '这', '那', '他', '她', '它', '我们', '你们', '他们', '她们', '它们',
-            '这个', '那个', '这些', '那些', '这里', '那里', '这样', '那样', '这么', '那么',
-            '什么', '怎么', '为什么', '如何', '哪里', '哪个', '哪些', '多少', '几',
-            '可以', '可能', '能够', '应该', '必须', '需要', '要求', '希望', '想要',
-            '因为', '所以', '但是', '然而', '虽然', '如果', '那么', '然后', '而且', '或者',
-            '例如', '比如', '譬如', '就像', '如同', '似乎', '好像', '大约', '大概',
-            '首先', '其次', '最后', '总之', '总而言之', '另外', '此外', '同时',
-            '通过', '根据', '按照', '关于', '对于', '至于', '由于', '因此',
-            '进行', '完成', '实现', '达到', '取得', '获得', '得到', '提供', '支持',
-            '使用', '利用', '应用', '采用', '选择', '决定', '确定', '确认',
-            '开始', '结束', '停止', '继续', '保持', '维持', '改变', '调整',
-            '重要', '主要', '关键', '核心', '基本', '根本', '必要', '必须',
-            '不同', '相同', '类似', '相似', '相关', '无关', '独立', '依赖',
-            '大', '小', '多', '少', '高', '低', '长', '短', '快', '慢', '强', '弱',
-            '新', '旧', '老', '年轻', '好', '坏', '优', '劣', '正', '负',
-            '前', '后', '左', '右', '上', '下', '内', '外', '中', '间',
-            '以及', '及其', '及其它', '其他', '其余', '剩下', '全部', '所有',
-            '每个', '各个', '各种', '各类', '各项', '各个', '各种', '各类',
-            '一些', '一点', '一部分', '一方面', '另一方面',
-            '非常', '十分', '极其', '特别', '尤其', '更加', '较为', '比较',
-            '一定', '肯定', '确定', '确实', '实在', '真正', '确实', '的确',
-            '可能', '也许', '或许', '大概', '大约', '差不多', '几乎', '近乎',
-            '已经', '曾经', '正在', '将要', '即将', '马上', '立刻', '立即',
-            '刚才', '刚刚', '最近', '近来', '目前', '现在', '当前', '如今',
-            '以前', '之前', '今后', '以后', '未来', '将来', '永远',
+        # 短语模式正则表达式
+        self.phrase_patterns = [
+            r'[\u4e00-\u9fff]+模式',  # XX模式
+            r'[\u4e00-\u9fff]+模型',  # XX模型
+            r'[\u4e00-\u9fff]+任务',  # XX任务
+            r'[\u4e00-\u9fff]+策略',  # XX策略
+            r'[\u4e00-\u9fff]+技术',  # XX技术
+            r'[\u4e00-\u9fff]+系统',  # XX系统
+            r'[\u4e00-\u9fff]+智能体',  # XX智能体
+            r'[\u4e00-\u9fff]+算法',  # XX算法
+            r'[\u4e00-\u9fff]+框架',  # XX框架
+            r'[\u4e00-\u9fff]+工具',  # XX工具
+        ]
 
-            # 英文停用词
-            'the', 'a', 'an', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 'for',
-            'of', 'with', 'by', 'from', 'up', 'about', 'into', 'through',
-            'during', 'before', 'after', 'above', 'below', 'between',
-            'is', 'are', 'was', 'were', 'be', 'been', 'being',
-            'have', 'has', 'had', 'having', 'do', 'does', 'did', 'doing',
-            'can', 'could', 'may', 'might', 'must', 'shall', 'should',
-            'will', 'would', 'there', 'here', 'where', 'when', 'why', 'how',
-            'what', 'which', 'who', 'whom', 'whose', 'this', 'that', 'these', 'those',
-            'I', 'you', 'he', 'she', 'it', 'we', 'they', 'me', 'him', 'her', 'us', 'them',
-            'my', 'your', 'his', 'her', 'its', 'our', 'their', 'mine', 'yours', 'hers',
-            'ours', 'theirs', 'myself', 'yourself', 'himself', 'herself', 'itself',
-            'ourselves', 'yourselves', 'themselves'
-        ])
+        # 停用词列表（扩展版）
+        self.stop_words = {'的', '了', '在', '是', '我', '有', '和', '就', '不', '人', '都', '一', '一个', '上', '也',
+                           '很', '到', '说', '要', '去', '你', '会', '着', '没有', '看', '好', '自己', '这', '那', '他',
+                           '她', '它', '我们', '你们', '他们', '她们', '它们', '这个', '那个', '这些', '那些', '这里',
+                           '那里', '这样', '那样', '这么', '那么', '什么', '怎么', '为什么', '如何', '哪里', '哪个',
+                           '哪些', '多少', '几', '可以', '可能', '能够', '应该', '必须', '需要', '要求', '希望', '想要',
+                           '因为', '所以', '但是', '然而', '虽然', '如果', '那么', '然后', '而且', '或者', '例如',
+                           '比如', '譬如', '就像', '如同', '似乎', '好像', '大约', '大概', '首先', '其次', '最后',
+                           '总之', '总而言之', '另外', '此外', '同时', '通过', '根据', '按照', '关于', '对于', '至于',
+                           '由于', '因此', '进行', '完成', '实现', '达到', '取得', '获得', '得到', '提供', '支持',
+                           '使用', '利用', '应用', '采用', '选择', '决定', '确定', '确认', '开始', '结束', '停止',
+                           '继续', '保持', '维持', '改变', '调整', '重要', '主要', '关键', '核心', '基本', '根本',
+                           '必要', '必须', '不同', '相同', '类似', '相似', '相关', '无关', '独立', '依赖', '大', '小',
+                           '多', '少', '高', '低', '长', '短', '快', '慢', '强', '弱', '新', '旧', '老', '年轻', '好',
+                           '坏', '优', '劣', '正', '负', '前', '后', '左', '右', '上', '下', '内', '外', '中', '间',
+                           '以及', '及其', '及其它', '其他', '其余', '剩下', '全部', '所有', '每个', '各个', '各种',
+                           '各类', '各项', '各个', '各种', '各类', '一些', '一点', '一部分', '一方面', '另一方面',
+                           '非常', '十分', '极其', '特别', '尤其', '更加', '较为', '比较', '一定', '肯定', '确定',
+                           '确实', '实在', '真正', '确实', '的确', '可能', '也许', '或许', '大概', '大约', '差不多',
+                           '几乎', '近乎', '已经', '曾经', '正在', '将要', '即将', '马上', '立刻', '立即', '刚才',
+                           '刚刚', '最近', '近来', '目前', '现在', '当前', '如今', '以前', '之前', '今后', '以后',
+                           '未来', '将来', '永远', 'the', 'a', 'an', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 'for',
+                           'of', 'with', 'by', 'from', 'up', 'about', 'into', 'through', 'during', 'before', 'after',
+                           'above', 'below', 'between', 'is', 'are', 'was', 'were', 'be', 'been', 'being', 'have',
+                           'has', 'had', 'having', 'do', 'does', 'did', 'doing', 'can', 'could', 'may', 'might', 'must',
+                           'shall', 'should', 'will', 'would', 'there', 'here', 'where', 'when', 'why', 'how', 'what',
+                           'which', 'who', 'whom', 'whose', 'this', 'that', 'these', 'those', 'I', 'you', 'he', 'she',
+                           'it', 'we', 'they', 'me', 'him', 'her', 'us', 'them', 'my', 'your', 'his', 'her', 'its',
+                           'our', 'their', 'mine', 'yours', 'hers', 'ours', 'theirs', 'myself', 'yourself', 'himself',
+                           'herself', 'itself', 'ourselves', 'yourselves', 'themselves'}
 
     def _initialize_jieba(self):
         """初始化jieba配置"""
@@ -155,6 +155,119 @@ class KeywordExtractor:
 
         return filtered_keywords[:top_k]
 
+    def extract_phrases(self, text: str, top_k: int = 10,
+                       min_phrase_length: int = 2, max_phrase_length: int = 4) -> List[str]:
+        """
+        提取短语（名词性短语）
+
+        Args:
+            text: 输入文本
+            top_k: 返回短语数量
+            min_phrase_length: 最小短语长度（词数）
+            max_phrase_length: 最大短语长度（词数）
+
+        Returns:
+            短语列表
+        """
+        # 文本预处理
+        clean_text = self._preprocess_text(text)
+
+        if not clean_text.strip():
+            return []
+
+        # 使用词性标注提取名词性短语
+        words = pseg.cut(clean_text)
+
+        phrases = []
+        current_phrase = []
+
+        for word, flag in words:
+            # 名词性词性：n(名词), vn(动名词), nr(人名), ns(地名), nt(机构名), nz(其他专名)
+            if flag.startswith('n') and word not in self.stop_words and len(word) >= 2:
+                current_phrase.append(word)
+            else:
+                # 遇到非名词，保存当前短语
+                if (len(current_phrase) >= min_phrase_length and
+                    len(current_phrase) <= max_phrase_length):
+                    phrase = ''.join(current_phrase)
+                    if len(phrase) >= 4:  # 至少2个汉字
+                        phrases.append(phrase)
+                current_phrase = []
+
+        # 处理最后一个短语
+        if (len(current_phrase) >= min_phrase_length and
+            len(current_phrase) <= max_phrase_length):
+            phrase = ''.join(current_phrase)
+            if len(phrase) >= 4:
+                phrases.append(phrase)
+
+        # 去重并返回
+        unique_phrases = list(set(phrases))
+        return unique_phrases[:top_k]
+
+    def extract_concepts(self, text: str, top_k: int = 10) -> List[str]:
+        """
+        提取概念性短语（基于模式匹配）
+
+        Args:
+            text: 输入文本
+            top_k: 返回概念数量
+
+        Returns:
+            概念列表
+        """
+        clean_text = self._preprocess_text(text)
+
+        if not clean_text.strip():
+            return []
+
+        concepts = []
+        for pattern in self.phrase_patterns:
+            matches = re.findall(pattern, clean_text)
+            for match in matches:
+                if (match not in self.stop_words and
+                    len(match) >= 4 and  # 至少2个汉字
+                    match not in concepts):
+                    concepts.append(match)
+
+        return concepts[:top_k]
+
+    def extract_hybrid_keywords(self, text: str, top_k: int = 10,
+                               method: str = 'tfidf') -> List[str]:
+        """
+        混合关键词提取（短语+概念+传统关键词）
+
+        Args:
+            text: 输入文本
+            top_k: 返回关键词数量
+            method: 传统关键词提取方法
+
+        Returns:
+            混合关键词列表
+        """
+        # 提取短语
+        phrases = self.extract_phrases(text, top_k=top_k//2)
+
+        # 提取概念
+        concepts = self.extract_concepts(text, top_k=top_k//3)
+
+        # 提取传统关键词
+        traditional_keywords = self.extract_keywords(
+            text, top_k=top_k//3, method=method, with_weight=False
+        )
+
+        # 合并并去重
+        all_keywords = phrases + concepts + traditional_keywords
+        unique_keywords = []
+        seen = set()
+
+        for keyword in all_keywords:
+            if keyword not in seen:
+                unique_keywords.append(keyword)
+                seen.add(keyword)
+
+        return unique_keywords[:top_k]
+
     def _preprocess_text(self, text: str) -> str:
         """文本预处理"""
         # 移除代码块
@@ -193,6 +306,11 @@ class KeywordExtractor:
         tfidf_keywords = self.extract_keywords(text, top_k=15, method='tfidf', with_weight=True)
         textrank_keywords = self.extract_keywords(text, top_k=15, method='textrank', with_weight=True)
 
+        # 提取短语和概念
+        phrases = self.extract_phrases(text, top_k=10)
+        concepts = self.extract_concepts(text, top_k=10)
+        hybrid_keywords = self.extract_hybrid_keywords(text, top_k=15)
+
         # 统计信息
         word_count = len(words)
         unique_words = len(set(words))
@@ -204,6 +322,9 @@ class KeywordExtractor:
             'domain_word_ratio': domain_word_count / word_count if word_count > 0 else 0,
             'tfidf_keywords': tfidf_keywords,
             'textrank_keywords': textrank_keywords,
+            'phrases': phrases,
+            'concepts': concepts,
+            'hybrid_keywords': hybrid_keywords,
             'domain_keywords': [word for word, _ in tfidf_keywords
                               if word in self.agent_domain_words]
         }
@@ -290,6 +411,9 @@ def test_extractor():
     print(f"  唯一词数: {analysis['unique_words']}")
     print(f"  领域词比例: {analysis['domain_word_ratio']:.2%}")
     print(f"  领域关键词: {analysis['domain_keywords']}")
+    print(f"  短语: {analysis['phrases']}")
+    print(f"  概念: {analysis['concepts']}")
+    print(f"  混合关键词: {analysis['hybrid_keywords']}")
 
 if __name__ == "__main__":
     import argparse
