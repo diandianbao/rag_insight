@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="de89c774-ef21-4224-8503-b20beaccd20f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/keyword_extractor.py" beforeDir="false" afterPath="$PROJECT_DIR$/keyword_extractor.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +38,7 @@
   "keyToString": {
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "Python.document_splitter.executor": "Run",
-    "Python.keyword_extractor.executor": "Debug",
+    "Python.keyword_extractor.executor": "Run",
     "Python.main.executor": "Run",
     "Python.memory.executor": "Run",
     "Python.test_embedding.executor": "Run",
@@ -51,7 +51,7 @@
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/looboo/myprojects/google_adk/text",
+    "last_opened_file_path": "/Users/looboo/myprojects/rag_insight",
     "settings.editor.selected.configurable": "preferences.keymap"
   },
   "keyToStringList": {
@@ -209,5 +209,16 @@
       <updated>1762180172875</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
