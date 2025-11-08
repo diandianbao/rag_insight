@@ -1,0 +1,39 @@
+# RAG CLI 配置文件
+
+# 向量存储配置
+vector_store:
+  database_url: "postgresql://postgres:postgres@localhost:5432/hello_vector"
+  table_name: "document_chunks"
+  embedding_model: "qwen3-embedding:4b"
+  embedding_endpoint: "http://localhost:11434/api/embeddings"
+  vector_dimension: 2560
+  batch_size: 100
+  timeout: 30
+
+# 重排序配置
+reranker:
+  enabled: true
+  endpoint: "http://localhost:11435/v1/reranker"
+  model: "Qwen/Qwen3-Reranker-4B"
+  timeout: 30
+
+# 显示配置
+display:
+  theme: "dark"
+  max_results: 10
+  show_scores: true
+  highlight_keywords: true
+  show_progress: true
+
+# 交互式配置
+interactive:
+  enable_history: true
+  max_history_size: 50
+  auto_save_session: true
+  session_file: "~/.rag_cli/session.json"
+
+# 检索配置
+search:
+  default_top_k: 10
+  similarity_threshold: 0.5
+  enable_filters: true
