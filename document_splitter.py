@@ -1,3 +1,4 @@
+
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
@@ -23,6 +24,7 @@ class DocumentChunk:
     id: str
     content: str
     metadata: Dict[str, Any]
+    keywords: List[str]
 
 class DocumentSplitter:
     """文档分割器"""
@@ -190,7 +192,10 @@ class DocumentSplitter:
         chapter_id = base_metadata.get('chapter_id', 'unknown')
         chunk_id = f"chapter_{chapter_id}_block_{block_index:03d}"
 
-        # 构建完整元数据
+        # 提取关键词
+        keywords = self._extract_keywords(content)
+
+        # 构建完整元数据（不包含关键词，因为现在有独立字段）
         metadata = base_metadata.copy()
         metadata.update({
             'block_index': block_index,
@@ -199,14 +204,14 @@ class DocumentSplitter:
             'title_level': title_level,
             'title': title,
             'has_code': self._has_code(content),
-            'has_list': self._has_list(content),
-            'keywords': self._extract_keywords(content)
+            'has_list': self._has_list(content)
         })
 
         return DocumentChunk(
             id=chunk_id,
             content=content,
-            metadata=metadata
+            metadata=metadata,
+            keywords=keywords
         )
 
     def _extract_base_metadata(self, file_path: str) -> Dict[str, Any]:
@@ -397,7 +402,8 @@ class DocumentSplitter:
             chunk_data.append({
                 'id': chunk.id,
                 'content': chunk.content,
-                'metadata': chunk.metadata
+                'metadata': chunk.metadata,
+                'keywords': chunk.keywords
             })
 
         with open(output_file, 'w', encoding='utf-8') as f:
